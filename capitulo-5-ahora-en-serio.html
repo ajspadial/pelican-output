@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <meta charset="utf-8" />
+        <title>capitulo 5 - ahora en serio</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Bits al servicio de la Ciencia </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/blog.html">Blog</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/capitulo-5-ahora-en-serio.html" rel="bookmark"
+           title="Permalink to capitulo 5 - ahora en serio">capitulo 5 - ahora en serio</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2011-05-26T20:23:00">
+                Thu 26 May 2011
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/antonio-jesus-sanchez-padial.html">Antonio Jesus Sanchez Padial</a>
+        </address>
+<p>In <a href="/category/blog.html">Blog</a>. </p>
+<p>tags: <a href="/tag/processing.html">processing</a></p>
+</footer><!-- /.post-info -->      <p>Hay algo más en <strong>Processing</strong> que primitivas. Si has jugado un poco con ellas habrás visto que aunque interesantes, pueden ser un poco aburridas. El primer paso para crear un sistema interactivo, que atienda a las acciones del usuario, es ver la estructura de un programa en Processing.</p>
+<div class="highlight"><pre><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+ <span class="c1">// iniciacion </span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">draw</span><span class="p">()</span> <span class="p">{</span>
+ <span class="c1">// proceso </span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Estos  bloques se llaman <strong>funciones</strong>, en la función <code>setup()</code> pondremos el código que haya que ejecutar al comenzar nuestro programa. Sólo se ejecuta una vez. Solemos alojar en ese bloque la configuración inicial de nuestro programa como el tamaño de la pantalla, colores, etc.</p>
+<p>En <code>draw()</code> colocaremos el código que forma el núcleo de nuestra aplicación. Processing se encargará de llamarla una vez tras otra hasta que finalicemos la aplicación, bien cerrando la ventana, bien con el botón <code>stop</code> del entorno de Processing.</p>
+<!-- more -->
+
+<p>Vamos a ver un ejemplo, no dejéis de probarlo en vuestro editor de Processing:</p>
+<div class="highlight"><pre><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">size</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span> 
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">draw</span><span class="p">()</span> <span class="p">{</span> 
+  <span class="n">ellipse</span><span class="p">(</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">mouseX</span><span class="p">,</span> <span class="n">mouseY</span><span class="p">);</span> 
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Ahora sí hemos creado un sistema interactivo de verdad, ¿no? Como véis he introducido dos variables del sistema nuevas <code>mouseX</code> y <code>mouseY</code>, en las que podemos consultar a Processing la posición del ratón en la pantalla.</p>
+<p>Hasta aquí llega esta capítulo, no dejéis de enviar a la web vuestra dudas, comentarios, y por supuesto <strong>¡¡vuestros primeros pasos con processing!!</strong></p>
+<p _="%" endblockquote="endblockquote">{% blockquote ajspadial http://escueladebits.com/content/cap%C3%ADtulo-5-ahora-en-serio-tu-primer-programa#comment-213776306 %}
+Apunte para mí mismo, cuando redactes el capítulo para el libro comenta brevemente el uso de llaves, paréntesis y ";"</p>
+<p _="%" endblockquote="endblockquote">{% blockquote @evgalvan http://escueladebits.com/content/cap%C3%ADtulo-5-ahora-en-serio-tu-primer-programa#comment-425448041 %}
+y la importancia de las mayúsculas o minúsculas</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

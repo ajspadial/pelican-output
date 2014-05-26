@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <meta charset="utf-8" />
+        <title>capítulo 8 - interacción</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Bits al servicio de la Ciencia </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/blog.html">Blog</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/capitulo-8-interaccion.html" rel="bookmark"
+           title="Permalink to capítulo 8 - interacción">capítulo 8 - interacción</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2011-06-15T09:02:00">
+                Wed 15 June 2011
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/antonio-jesus-sanchez-padial.html">Antonio Jesus Sanchez Padial</a>
+        </address>
+<p>In <a href="/category/blog.html">Blog</a>. </p>
+<p>tags: <a href="/tag/processing.html">processing</a></p>
+</footer><!-- /.post-info -->      <p><em>El capítulo 7 estará dedicado a las funciones en <strong>Processing</strong>. Puesto que ya hemos avanzado este tema de mano del blog <a href="http://processing.mondonerd.com/tutorial/372">Processing Cafe</a>, paso al siguiente capítulo dedicado a la interacción.
+La versión final del <strong>Primeros Pasos con Processing</strong> si contará con un capítulo 7 dedicado a las funciones.</em></p>
+<p>En deferencia desde el tiempo pasado desde la última entrada voy a publicar esta en varias notas sucesivas, de forma que podáis ir leyendo sin tener que esperar a que termine por completo de escribir este capítulo</p>
+<p>En el <a href="/blog/2011/05/28/capitulo-6-bota-mi-pelota/">capítulo 6</a> aprendimos como realizar una animación sencilla, una pelota que caía y botaba. En este haremos un juego de frontón, que será una especie de versión simplificada del mítico <strong>Pong</strong>. En lugar de la típica vista cenital del campo de juego, reproduciremos un alzado del perfil.</p>
+<p>Verdaderamente, deberíamos dedicar un apartado al diseño del juego, describiendo el aspecto que se quiere conseguir, las reglas, etc. Para evitar extenderme en una guía breve como ésta, voy a describir el diseño conforme os muestro el código, pero esto solo es recomendable hacerlo para un juego de proporciones tan reducidas como éste.</p>
+<!-- more -->
+
+<p>En primer lugar dibujaremos el terreno de juego. Vamos a hacerlo creando unas funciones específicas para ello, <code>dibuja_fronton()</code> y <code>dibuja_suelo()</code> . Esto añade un poco de complejidad a la hora de diseñar y escribir el programa, pero hace mucho más sencillo leerlo y modificarlo más adelante.</p>
+<p>Ahora añadiremos nuestra pala de pelotari. También introduciremos una función para ello. Vamos a cambiar la estructura del programa, e introducir el bloque draw().</p>
+<p>{% gist 3158752 %}</p>
+<p>Con esto ya tenemos tres de los cuatro elementos básicos de nuestro de frontón, solo nos falta la pelota. En la próxima entrada del blog describiremos el funcionamiento de la pelota, añadiendo las reglas básicas (o físicas) del juego, como los rebotes, etc.</p>
+<p>Por último, y a modo de curiosidad, os dejo este video en el que se muestra el primer videojuego electrónico con gráficos interactivos: <strong>Tennis for Two</strong>, que también utilizaba una vista en alzado para simular un partido de tenis.</p>
+<iframe width="420" height="315" src="http://www.youtube.com/embed/s2E9iSQfGdg" frameborder="0" allowfullscreen></iframe>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

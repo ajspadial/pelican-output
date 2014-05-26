@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <meta charset="utf-8" />
+        <title>primer ejemplo para android</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Bits al servicio de la Ciencia </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/blog.html">Blog</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/primer-ejemplo-para-android.html" rel="bookmark"
+           title="Permalink to primer ejemplo para android">primer ejemplo para android</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2011-09-19T10:43:00">
+                Mon 19 September 2011
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/antonio-jesus-sanchez-padial.html">Antonio Jesus Sanchez Padial</a>
+        </address>
+<p>In <a href="/category/blog.html">Blog</a>. </p>
+<p>tags: <a href="/tag/processing.html">processing</a></p>
+</footer><!-- /.post-info -->      <p>Una de las principales diferencias de programar para <strong>Android</strong> respecto al PC (o+ Mac) es el uso del ratón. Los dispositivos Android no suelen tener ratón o equivalente y algunos elemetos de <strong>Processing</strong> como <code>mouseClicked</code> no tienen sentido.</p>
+<p>Processing nos facilita la vida de todos modos, y viejos conocidos como <code>mouseX</code>, <code>mouseY</code> siguen estando disponibles, ofreciendo la última pulsación en la pantalla.</p>
+<p>En el siguiente código se muestra como podemos arrastrar una imagen por la pantalla de nuestro dispositivo.</p>
+<p>{% gist 3476335 %}</p>
+<p>Otra diferencia con respecto a la programación de nuestro ordenador, es el uso de la función <code>size()</code>. En Android el tamaño de la pantalla está fijado por las dimensiones del dispositivo, por lo que no podemos fijar el tamaño. Es suficiente con no hacer uso de ella.</p>
+<p>Podéis escoger cualquier imagen que queráis para substituir el seat.png del ejemplo, Processing admite todos los tipos más populares de ficheros gráficos (.jpg, .gif, .png, ...). Debéis almacenar dicho fichero en una carpeta <code>data</code> dentro de la carpeta de vuestra aplicación.</p>
+<p>Con esto ya tendréis vuestra primera y sencila aplicación para Android hecha en Processing. No dudéis en dejar vuestras dudas o ideas en los comentarios, hasta la próxima sesión.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

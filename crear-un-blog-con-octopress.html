@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <meta charset="utf-8" />
+        <title>Crear un blog con octopress</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Bits al servicio de la Ciencia </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/blog.html">Blog</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/crear-un-blog-con-octopress.html" rel="bookmark"
+           title="Permalink to Crear un blog con octopress">Crear un blog con octopress</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-07-11T20:06:00">
+                Wed 11 July 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/antonio-jesus-sanchez-padial.html">Antonio Jesus Sanchez Padial</a>
+        </address>
+<p>In <a href="/category/blog.html">Blog</a>. </p>
+<p>tags: <a href="/tag/blog.html">blog</a></p>
+</footer><!-- /.post-info -->      <p>En este primer artículo de la nueva (<em>otra vez</em>) <strong>Escuela de Bits</strong>, describo los pasos necesarios para montar un sitio como este usando <a href="http://octopress.org">Octopress</a>.</p>
+<p>El sitio web de octopress cuenta con instrucciones más detalladas para cada uno de estos apartados, aunque están inglés.</p>
+<!-- more -->
+
+<h2>Instalar octopress</h2>
+<p><em>Instrucciones del sitio original: <a href="http://octopress.org/docs/setup/">Octopress Setup</a></em></p>
+<p>En mi instalación ya tenía instalado <code>git</code> y <code>ruby</code>, por lo que he ignorado esa parte de las instrucciones.</p>
+<ol>
+<li>
+<p>Ir a github y <strong>forkear</strong> el proyecto <a href="https://github.com/imathis/octopress" title="Octopress source at github.com">octopress</a></p>
+</li>
+<li>
+<p><strong>Clona</strong> el proyecto forkado en tu equipo. Si lo clonas en una carpeta de dropbox (o similar) lo tendrás disponible desde cualquier equipo.</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="o">:</span><span class="c1">//github.com/YOUR_USER/octopress.git octopress</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><strong>Instala</strong> el tema por defecto de Octopress</p>
+<div class="highlight"><pre><span class="n">cd</span> <span class="n">octopress</span>
+<span class="n">rake</span> <span class="n">install</span>
+</pre></div>
+
+
+</li>
+</ol>
+<h2>Alojar el blog octopress en github.com</h2>
+<p><em>Instrucciones del sitio original: <a href="http://octopress.org/docs/deploying/github/">Deploying Github Pages</a></em></p>
+<ol>
+<li>
+<p>Crear el <strong>repositorio de destino</strong> en github.com, en mi caso https://github.com/ajspadial/ajspadial.github.com</p>
+</li>
+<li>
+<p><strong>Configurar octopress</strong> para acceder a este respositorio</p>
+<div class="highlight"><pre><span class="n">rake</span> <span class="n">setup_github_pages</span>
+</pre></div>
+
+
+<p>Cuando nos pregunta la <em>read/write url for your repository</em> hay que responder en el siguiente formato, gracias <a href="https://github.com/imathis/octopress/issues/301">Alder101</a>:</p>
+<div class="highlight"><pre><span class="n">git</span><span class="err">@</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">:</span><span class="n">ajspadial</span><span class="o">/</span><span class="n">ajspadial</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">git</span>
+</pre></div>
+
+
+</li>
+</ol>
+<h2>Configurar nuestro blog</h2>
+<p><em>Instrucciones del sitio original: <a href="http://octopress.org/docs/configuring/">Configuring Octopress</a></em></p>
+<ol>
+<li>
+<p>Acceder al fichero <strong>_config.yml</strong> y cambiar los campos oportunos, seguramente <em>url</em>, <em>title</em>, <em>subtitle</em> y <em>author</em></p>
+</li>
+<li>
+<p>La segunda parte del archivo de configuración corresponde a los parámetros por de <strong>Jekyll</strong> sistema sobre el que funciona Octopress. Puedo dejar los valores por defecto, por el momento.</p>
+</li>
+<li>
+<p>Por último, en la tercera sección del fichero podemos configurar algunos parámetros de aplicaciones de terceros, como Twitter, etc.</p>
+</li>
+</ol>
+<p>Puedo dejar los valores por defecto, por el momento.</p>
+<ol>
+<li>No olvides <strong>actualizar</strong> los cambios<div class="highlight"><pre><span class="n">rake</span> <span class="n">generate</span>
+<span class="n">rake</span> <span class="n">deploy</span>
+</pre></div>
+
+
+</li>
+</ol>
+<h2>Crear nuestro primer contenido</h2>
+<p><em>Instrucciones del sitio original: <a href="http://octopress.org/docs/blogging/">Blogging Basics</a></em></p>
+<ol>
+<li>
+<p>Octopress nos ofrece un comando para <strong>crear posts</strong></p>
+<div class="highlight"><pre><span class="n">rake</span> <span class="n">new_post</span><span class="p">[</span><span class="s">&quot;title&quot;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Lo que crea un fichero en la carpeta <code>source/_posts</code> nombrado según el formato <code>yyyy-mm-dd-TITLE.mardown</code>.</p>
+</li>
+<li>
+<p><strong>Editar</strong> el fichero. En principio es suficiente respetar la cabecera, pero podemos añadir etiquetas en el apartado tags.</p>
+<p>Detrás de la cabecera escribimos el contenido del artículo usando la sintaxis <a href="http://daringfireball.net/projects/markdown/syntax">markdown</a></p>
+</li>
+<li>
+<p>Una vez completada la edición, publicaremos el post con los comandos:</p>
+<div class="highlight"><pre><span class="n">rake</span> <span class="n">generate</span>
+<span class="n">rake</span> <span class="n">deploy</span>
+</pre></div>
+
+
+<p>Y actualizaremos</p>
+<div class="highlight"><pre><span class="n">git</span> <span class="n">add</span> <span class="p">.</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s">&quot;Nuevo artículo&quot;</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">source</span>
+</pre></div>
+
+
+</li>
+</ol>
+<p>:wq</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

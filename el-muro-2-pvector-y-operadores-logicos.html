@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <meta charset="utf-8" />
+        <title>El muro 2 pvector y operadores lógicos</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Bits al servicio de la Ciencia </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/blog.html">Blog</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/el-muro-2-pvector-y-operadores-logicos.html" rel="bookmark"
+           title="Permalink to El muro 2 pvector y operadores lógicos">El muro 2 pvector y operadores lógicos</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2011-07-01T09:37:00">
+                Fri 01 July 2011
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/antonio-jesus-sanchez-padial.html">Antonio Jesus Sanchez Padial</a>
+        </address>
+<p>In <a href="/category/blog.html">Blog</a>. </p>
+<p>tags: <a href="/tag/processing.html">processing</a></p>
+</footer><!-- /.post-info -->      <p>En la última entrada nos quedamos con las ganas de destruir nuestro bonito muro, así que es el momento de empezar.</p>
+<p>En primer lugar añadiremos una pelota en movimiento, esto ya lo hemos estudiado en capítulos anteriores. Usaremos un nuevo tipo de variable para almacenar la posición, el <strong>PVector</strong>. Y sendas funciones para dibujar la pelota y actualizar su posición.</p>
+<p>{% gist 3475807 %}</p>
+<p>Hay dos cosas fundamentales en este trozo de código. <!-- more -->Por un lado nuestro primer uso de <strong>objetos</strong>, en este caso de tipo PVector. Los objetos son tipos especiales de variables. Se declaran igual que int, etc., pero es necesario inicializarlas: es decir, reservar memoria para ellas. Esto se hace con la función new(), que podemos ver en el setup() de nuestro ejemplo.</p>
+<p>Los objetos como PVector ofrecen al programador <strong>atributos</strong> y <strong>métodos</strong>. Accedemos a ambos por medio de la sintáxis '.'. Los <strong>atributos</strong> son variables internas que almacenan las características del objeto. PVector tiene como atributos valores reales (float) llamados x e y. Por ejemplo, en la línea 9, accedemos al atributo x escribiendo pelotaPos.x.</p>
+<p>Los objetos también ofrecen <strong>métodos</strong>. Son funciones internas que pueden acceder a los atributos del objeto sin necesidad de indicarlo en la llamada a la función. PVector ofrece distintas funciones para el trabajo con vectores. En la línea 22, vemos la llamada a la función add(), que suma un vector a otro.</p>
+<p>Por otro lado en la condición de choque de la pelota he introducido un nuevo operador: <strong>||</strong>. Se trata del operador lógico OR. El resultado de OR es cierto (true) si <strong>alguno</strong> (cualquiera) de los dos valores operados (a la izquierda y derecha de ||) es cierto.</p>
+<p>Existen otros operadores lógicos, por ejemplo AND, representado con <strong>&amp;&amp;</strong>. Este operador sólo es cierto, si <strong>todos</strong> los valores operados lo son.</p>
+<p>Llegados a este punto podemos añadir el código de dibujo del muro del último artículo de la web. Al hacerlo veréis que no le hemos explicado a <strong>Processing</strong>, cómo debe botar la pelota contra los ladrillos.</p>
+<p>Para hacerlo debemos comprobar la posición de la pelota contra cada uno de los ladrillos. Podéis apostar que cada vez que aparezca una expresión del tipo <em>cada uno</em> en vuestra descripción de un efecto, habrá un bucle <code>for</code> implicado.</p>
+<div class="highlight"><pre><span class="kt">void</span> <span class="nf">actualizaPelota</span><span class="o">()</span> <span class="o">{</span> 
+  <span class="c1">// ... resto del código ya visto </span>
+  <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span> 
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">17</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span> 
+      <span class="kt">int</span> <span class="n">desplazamientoX</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> 
+      <span class="kt">int</span> <span class="n">desplazamientoY</span> <span class="o">=</span> <span class="n">altoLadrillo</span> <span class="o">*</span> <span class="mi">2</span><span class="o">;</span> 
+      <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> 
+        <span class="n">desplazamientoX</span> <span class="o">=</span> <span class="o">-</span> <span class="n">anchoLadrillo</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">minimoX</span> <span class="o">=</span> <span class="n">desplazamientoX</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="n">anchoLadrillo</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">maximoX</span> <span class="o">=</span> <span class="n">minimoX</span> <span class="o">+</span> <span class="n">anchoLadrillo</span><span class="o">;</span> 
+        <span class="k">if</span> <span class="o">(</span><span class="n">minimoX</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="o">)</span> 
+          <span class="n">minimoX</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> 
+        <span class="kt">int</span> <span class="n">minimoY</span> <span class="o">=</span> <span class="n">desplazamientoY</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">altoLadrillo</span><span class="o">;</span> 
+        <span class="kt">int</span> <span class="n">maximoY</span> <span class="o">=</span> <span class="n">minimoY</span> <span class="o">+</span> <span class="n">altoLadrillo</span><span class="o">;</span> 
+        <span class="k">if</span> <span class="o">((</span><span class="n">pelotaPos</span><span class="o">.</span><span class="na">x</span> <span class="o">&gt;=</span> <span class="n">minimoX</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">pelotaPos</span><span class="o">.</span><span class="na">x</span> <span class="o">&lt;=</span> <span class="n">maximoX</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">pelotaPosY</span> <span class="o">&gt;=</span> <span class="n">minimoY</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">pelotaPos</span><span class="o">.</span><span class="na">y</span> <span class="o">&lt;=</span> <span class="n">minimoY</span><span class="o">))</span> <span class="o">{</span>
+          <span class="c1">// colisión </span>
+          <span class="n">pelotaVel</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">pelotaVel</span><span class="o">.</span><span class="na">x</span><span class="o">;</span> 
+          <span class="n">pelotaVel</span><span class="o">.</span><span class="na">y</span> <span class="o">=</span> <span class="o">-</span><span class="n">pelotaVel</span><span class="o">.</span><span class="na">y</span><span class="o">;</span> 
+        <span class="o">}</span> 
+      <span class="o">}</span> 
+  <span class="o">}</span> 
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Cuando añadáis este código veréis que la pelota ya bota contra los ladrillos, pero aún no los destruye. Para ellos deberemos llevar la cuenta de qué ladrillos quedan puestos y cuales no. Resolveremos ese problema aprendiendo a usar los <strong>arrays</strong> en el próximo artículo de <strong>escueladebits.com</strong>. También introduciremos la interacción con la raqueta.</p>
+<p>¿Lo habéis probado ya? ¿Funciona correctamente? ¿Quieres modificar algo pero no consigues el resultado esperado? No dejes de enviar tus preguntas en los comentarios de los artículos, en la sección contacto, o en la página de Facebook. Nos vemos en los bits.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

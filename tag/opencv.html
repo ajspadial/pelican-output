@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <meta charset="utf-8" />
+        <title>Bits al servicio de la Ciencia - opencv]</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Bits al servicio de la Ciencia </a></h1>
+                <nav><ul>
+                    <li><a href="/category/blog.html">Blog</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/opencv-para-processing-en-ubuntu-64.html">opencv para processing en ubuntu 64</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2012-03-12T16:45:00">
+                Mon 12 March 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/antonio-jesus-sanchez-padial.html">Antonio Jesus Sanchez Padial</a>
+        </address>
+<p>In <a href="/category/blog.html">Blog</a>. </p>
+<p>tags: <a href="/tag/processing.html">[processing</a><a href="/tag/opencv.html">opencv]</a></p>
+</footer><!-- /.post-info --><p>Hola a todos,</p>
+<p>Tras una incursión por el taller de <a href="http://uncoded.es/biggames">Big Games</a> que se celebró hace un par de semanas en Medialab-Prado (Madrid) me he puesto a instalar opencv en processing.</p>
+<p>Para ello es necesario instalar OpenCV, y una librería para Processing (y Java) que actúa de intermediario. [Se puede descargar de aquí] (http://ubaa.net/shared/processing/opencv).</p>
+<p>El inconveniente es que esta librería parece no funcionar en las versiones de 64 bits de Ubuntu. A continuación os cuento como lo solucioné, de forma que podáis practicar si usáis este sistema operativo.</p>
+<!-- more -->
+
+<p>En primer lugar tuve que sustituir el OpenJDK (java open source) que tenía en Ubuntu por la versión <em>oficial</em> de <s>Sun</s> Oracle, ya que parecía que OpenJDK daba algún problema con la librería de captura de vídeo. De todos modos, no puedo asegurar que esto sea necesario para hacer funcionar la librería de OpenCV, ya que no lo he experimentado.</p>
+<p>A continuación descubrí en el foro de processing, que es necesario recompilar la librería de opencv. Se trata del mensaje #59 del usuario <em>minmuz</em>, [al final de esta págin] (http://processing.org/discourse/yabb2/YaBB.pl?num=1238338691/45)</p>
+<p>El comando javah genera una cabecera .h de <strong>C</strong>, pero lo hace a partir del código compilado en Java. Es necesario que compiles las fuentes (archivos java) de la librería OpenCV para Processing. El comando para compilar Java, es <code>javac</code>.</p>
+<div class="highlight"><pre>javac Blobs.java
+javac OpenCV.java
+</pre></div>
+
+
+<p>Con esto conseguirás los archivos de tipo <code>.class</code> que son los que necesita <code>javah</code>.</p>
+<p>Una vez creada esta cabecera hay que recompilar la librería de C++, para ello se usa el comando <code>g++</code> del foro citado.</p>
+<p>Para conseguirlo tuve que descargar todas las cabeceras (<em>headers</em>), ya que no las tenía en mi sistema. Las podéis encontrar en <a href="http://www.koders.com/c/fidEEBBA0C88A62051A9FFAD3F516721120F0C3E3AE.aspx">koders</a></p>
+<p>Sencillamente fui descargándolas conforme el compilador iba avisando de que faltaban.</p>
+<p>Por último las librerías <code>-lcv</code> y <code>-lhighgui</code> tenían otro nombre en mi instalación. Para averiguar qué nombre tienen esas librerías en tu sistema seguí <a href="http://ubuntuforums.org/howthread.php?t=683555">las instrucciones de este foro</a></p>
+<p>Este es el comando</p>
+<div class="highlight"><pre>pkg-config --libs opencv
+</pre></div>
+
+
+<p>Esto nos da un listado completo de las librerías opencv en nuestro sistema. Me guíe por el nombre para decidir cuales eran las alternativas a las <code>lcv</code>, y <code>lhighgui</code> que no encontraba. En mi caso los sustituí por <code>lopencv_core</code>y <code>lopencv_highgui</code>.</p>
+<p>Espero que esto sirva a quiénes hayan encontrado algún problema con este asunto. Si mi explicación no está clara, o tenéis algún problema en alguno de los pasos no dudéis en escribir a la escuela, o dejar un comentario. Intentaré ayudaros en base a mi experiencia con este asunto.</p>
+<p>Un saludo a todos, ¡y a por los bits!</p>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
